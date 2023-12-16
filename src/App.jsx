@@ -50,12 +50,16 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white font-pacifico">
       <div className="text-4xl mb-4">bogo sort app</div>
-      <textarea
-        className="w-1/2 h-16 p-2 mb-4 transition-all duration-300 focus:outline-none rounded-lg border border-gray-300 text-black"
-        placeholder="Enter numbers separated by space"
-        onChange={handleInputChange}
-        autoFocus
-      ></textarea>
+      <div className='w-3/4 flex flex-col items-center justify-center m-0'>
+        <h3 className='text-white mt-3 mb-5 text-center'>Enter all the numbers separated by space(' ').
+        </h3>
+        <textarea
+          className="w-auto h-16 p-2 mb-4 transition-all duration-300 focus:outline-none rounded-lg border border-none text-black block mt-0"
+          placeholder="Enter your numbers here..."
+          onChange={handleInputChange}
+          autoFocus
+        ></textarea>
+      </div>
       <div className="flex flex-wrap justify-center gap-2">
         {inputArray.map((element, index) => {
           if (isNaN(element)) {
@@ -64,7 +68,7 @@ function App() {
           return (
             <div
               key={index}
-              className={`flex items-center justify-center min-w-8 min-h-4 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300 mb-2 rounded-lg p-4`}
+              className={`flex items-center justify-center min-w-8 min-h-4 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300 m-2 rounded-lg p-4`}
             >
               {element}
             </div>
