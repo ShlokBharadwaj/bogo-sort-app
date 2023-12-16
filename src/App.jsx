@@ -51,9 +51,10 @@ function App() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white font-pacifico">
       <div className="text-4xl mb-4">bogo sort app</div>
       <textarea
-        className="w-1/2 h-16 p-2 mb-4 transition-all duration-300 focus:outline-none rounded-lg text-black"
+        className="w-1/2 h-16 p-2 mb-4 transition-all duration-300 focus:outline-none rounded-lg border border-gray-300 text-black"
         placeholder="Enter numbers separated by space"
-        onChange={handleInputChange} autoFocus
+        onChange={handleInputChange}
+        autoFocus
       ></textarea>
       <div className="flex flex-wrap justify-center gap-2">
         {inputArray.map((element, index) => {
