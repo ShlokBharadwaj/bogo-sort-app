@@ -59,7 +59,7 @@ function App() {
           autoFocus
         ></textarea>
       </div>
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-4">
         {inputArray.map((element, index) => {
           if (isNaN(element)) {
             return null;
@@ -67,7 +67,7 @@ function App() {
           return (
             <div
               key={index}
-              className={`flex items-center justify-center min-w-8 min-h-4 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300 m-2 rounded-lg p-4`}
+              className={`rounded-lg font-[75px] h-32 w-24 m-[1%] text-center text-white focus:outline-none pt-11 px-3 overflow-hidden bg-[#1e2d2f] ${sorted ? 'border border-solid border-green-500' : 'border border-solid border-red-500'} transition-all duration-300 m-4`}
             >
               {element}
             </div>
