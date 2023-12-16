@@ -30,7 +30,7 @@ function App() {
         setSorted(isSorted(sortedArray));
       };
 
-      const sortInterval = setInterval(sortArray, 1000);
+      const sortInterval = setInterval(sortArray, 10);
       return () => clearInterval(sortInterval);
     }
   }, [inputArray, sorted]);
@@ -50,7 +50,7 @@ function App() {
       <textarea
         className="w-full h-16 p-2 mb-4 border-red-500 focus:border-blue-500 transition-all duration-300"
         placeholder="Enter numbers separated by space"
-        onChange={handleInputChange}
+        onChange={handleInputChange} autoFocus
       ></textarea>
       <div className="flex space-x-2">
         {inputArray.map((element, index) => {
