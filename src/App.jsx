@@ -36,7 +36,10 @@ function App() {
   }, [inputArray, sorted]);
 
   const handleInputChange = (e) => {
-    const newArray = e.target.value.split(' ').map((item) => parseInt(item, 10));
+    const newArray = e.target.value
+      .split(' ')
+      .map((item) => parseInt(item, 10))
+      .filter((item) => !isNaN(item));
     setInputArray(newArray);
     setSorted(false);
   };
@@ -46,18 +49,24 @@ function App() {
       <div className="text-4xl mb-4">bogo sort app</div>
       <textarea
         className="w-full h-16 p-2 mb-4 border-red-500 focus:border-blue-500 transition-all duration-300"
-        placeholder="Enter array separated by space"
+        placeholder="Enter numbers separated by space"
         onChange={handleInputChange}
       ></textarea>
       <div className="flex space-x-2">
-        {inputArray.map((element, index) => (
-          <div
-            key={index}
-            className={`w-8 h-8 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300`}
-          >
-            {element}
-          </div>
-        ))}
+        {inputArray.map((element, index) => {
+          if (isNaN(element)) {
+            return null;
+          }
+
+          return (
+            <div
+              key={index}
+              className={`w-8 h-8 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300`}
+            >
+              {element}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
