@@ -51,11 +51,11 @@ function App() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white font-pacifico">
       <div className="text-4xl mb-4">bogo sort app</div>
       <textarea
-        className="w-1/2 h-16 p-2 mb-4 transition-all duration-300 focus:outline-none rounded-lg"
+        className="w-1/2 h-16 p-2 mb-4 transition-all duration-300 focus:outline-none rounded-lg text-black"
         placeholder="Enter numbers separated by space"
         onChange={handleInputChange} autoFocus
       ></textarea>
-      <div className="flex space-x-2">
+      <div className="flex flex-wrap justify-center gap-2">
         {inputArray.map((element, index) => {
           if (isNaN(element)) {
             return null;
@@ -63,7 +63,7 @@ function App() {
           return (
             <div
               key={index}
-              className={`w-14 h-14 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300 pl-5 pt-4 rounded-lg`}
+              className={`flex items-center justify-center min-w-8 min-h-4 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300 mb-2 rounded-lg p-4`}
             >
               {element}
             </div>
