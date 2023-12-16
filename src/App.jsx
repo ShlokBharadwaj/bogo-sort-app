@@ -4,6 +4,37 @@ function App() {
   const [inputArray, setInputArray] = useState([]);
   const [sorted, setSorted] = useState(false);
 
+  useEffect(() => {
+    if (!sorted) {
+      const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      };
+
+      const isSorted = (array) => {
+        for (let i = 0; i < array.length - 1; i++) {
+          if (array[i] > array[i + 1]) {
+            return false;
+          }
+        }
+        return true;
+      };
+
+      const sortArray = () => {
+        const newArray = [...inputArray];
+        const sortedArray = shuffleArray(newArray);
+        setInputArray(sortedArray);
+        setSorted(isSorted(sortedArray));
+      };
+
+      const sortInterval = setInterval(sortArray, 1000);
+      return () => clearInterval(sortInterval);
+    }
+  }, [inputArray, sorted]);
+
   const handleInputChange = (e) => {
     const newArray = e.target.value.split(' ').map((item) => parseInt(item, 10));
     setInputArray(newArray);
@@ -15,7 +46,7 @@ function App() {
       <div className="text-4xl mb-4">bogo sort app</div>
       <textarea
         className="w-full h-16 p-2 mb-4 border-red-500 focus:border-blue-500 transition-all duration-300"
-        placeholder="Enter numbers separated by space"
+        placeholder="Enter array separated by space"
         onChange={handleInputChange}
       ></textarea>
     </div>
