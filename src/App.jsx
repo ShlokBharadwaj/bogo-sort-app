@@ -49,6 +49,16 @@ function App() {
         placeholder="Enter array separated by space"
         onChange={handleInputChange}
       ></textarea>
+      <div className="flex space-x-2">
+        {inputArray.map((element, index) => (
+          <div
+            key={index}
+            className={`w-8 h-8 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300`}
+          >
+            {element}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
