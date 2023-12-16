@@ -51,7 +51,7 @@ function App() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white font-pacifico">
       <div className="text-4xl mb-4">bogo sort app</div>
       <textarea
-        className="w-full h-16 p-2 mb-4 border-red-500 focus:border-blue-500 transition-all duration-300"
+        className="w-1/2 h-16 p-2 mb-4 transition-all duration-300 focus:outline-none rounded-lg"
         placeholder="Enter numbers separated by space"
         onChange={handleInputChange} autoFocus
       ></textarea>
@@ -63,7 +63,7 @@ function App() {
           return (
             <div
               key={index}
-              className={`w-8 h-8 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300`}
+              className={`w-14 h-14 border ${sorted ? 'border-green-500' : 'border-red-500'} transition-all duration-300 pl-5 pt-4 rounded-lg`}
             >
               {element}
             </div>
