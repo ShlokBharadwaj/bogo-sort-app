@@ -30,7 +30,7 @@ function App() {
         setSorted(isSorted(sortedArray));
       };
 
-      const sortInterval = setInterval(sortArray, 10);
+      const sortInterval = setInterval(sortArray, 750);
       return () => clearInterval(sortInterval);
     }
   }, [inputArray, sorted]);
