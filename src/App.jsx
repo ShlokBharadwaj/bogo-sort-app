@@ -3,9 +3,14 @@ import React, { useState, useEffect } from 'react';
 function App() {
   const [inputArray, setInputArray] = useState([]);
   const [sorted, setSorted] = useState(false);
+  const [elapsedTime, setElapsedTime] = useState(0);
 
   useEffect(() => {
+    let startTime;
+
     if (!sorted) {
+      startTime = Date.now();
+
       const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -30,7 +35,11 @@ function App() {
         setSorted(isSorted(sortedArray));
       };
 
-      const sortInterval = setInterval(sortArray, 750);
+      const sortInterval = setInterval(() => {
+        sortArray();
+        setElapsedTime((Date.now() - startTime) / 1000);
+      }, 1000);
+
       return () => clearInterval(sortInterval);
     }
   }, [inputArray, sorted]);
@@ -42,11 +51,15 @@ function App() {
       .filter((item) => !isNaN(item));
     setInputArray(newArray);
     setSorted(false);
+    setElapsedTime(0);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white font-pacifico">
       <div className="text-4xl mb-4">bogo sort app</div>
+      <div className="mb-2">
+        Elapsed Time: {elapsedTime.toFixed(2)} seconds
+      </div>
       <textarea
         className="w-full h-16 p-2 mb-4 border-red-500 focus:border-blue-500 transition-all duration-300"
         placeholder="Enter numbers separated by space"
@@ -57,7 +70,6 @@ function App() {
           if (isNaN(element)) {
             return null;
           }
-
           return (
             <div
               key={index}
