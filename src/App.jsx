@@ -3,13 +3,12 @@ import React, { useState, useEffect } from 'react';
 function App() {
   const [inputArray, setInputArray] = useState([]);
   const [sorted, setSorted] = useState(false);
+  const [startTime, setStartTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
 
   useEffect(() => {
-    let startTime;
-
     if (!sorted) {
-      startTime = Date.now();
+      setStartTime(performance.now());
 
       const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
@@ -37,12 +36,12 @@ function App() {
 
       const sortInterval = setInterval(() => {
         sortArray();
-        setElapsedTime((Date.now() - startTime) / 1000);
+        setElapsedTime((performance.now() - startTime) / 1000);
       }, 1000);
 
       return () => clearInterval(sortInterval);
     }
-  }, [inputArray, sorted]);
+  }, [inputArray, sorted, startTime]);
 
   const handleInputChange = (e) => {
     const newArray = e.target.value
@@ -51,6 +50,7 @@ function App() {
       .filter((item) => !isNaN(item));
     setInputArray(newArray);
     setSorted(false);
+    setStartTime(performance.now());
     setElapsedTime(0);
   };
 
