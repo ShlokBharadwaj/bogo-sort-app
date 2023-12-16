@@ -1,7 +1,14 @@
-export default function App() {
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [inputArray, setInputArray] = useState([]);
+  const [sorted, setSorted] = useState(false);
+
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white font-pacifico">
+      <div className="text-4xl mb-4">bogo sort app</div>
+    </div>
+  );
 }
+
+export default App;
