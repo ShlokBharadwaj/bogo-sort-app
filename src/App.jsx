@@ -54,8 +54,7 @@ function App() {
         <h3 className='text-white mt-3 mb-5 text-center'>Enter all the numbers separated by space(' ').
         </h3>
         <textarea
-          className="w-auto h-16 p-2 mb-4 transition-all duration-300 focus:outline-none rounded-lg border border-none text-black block mt-0"
-          placeholder="Enter your numbers here..."
+          className="rounded-lg font-[75px] h-32 w-24 border-solid border-[#eee] m-[1%] text-center text-white focus:outline-none pt-11 px-3 overflow-hidden bg-gray-800"
           onChange={handleInputChange}
           autoFocus
         ></textarea>
