@@ -3,13 +3,11 @@ import React, { useState, useEffect } from 'react';
 function App() {
   const [inputArray, setInputArray] = useState([]);
   const [sorted, setSorted] = useState(false);
-  const [startTime, setStartTime] = useState(null);
-  const [elapsedTime, setElapsedTime] = useState(0);
 
   useEffect(() => {
-    if (!sorted) {
-      setStartTime(performance.now());
+    let sortInterval;
 
+    if (!sorted) {
       const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -34,14 +32,11 @@ function App() {
         setSorted(isSorted(sortedArray));
       };
 
-      const sortInterval = setInterval(() => {
-        sortArray();
-        setElapsedTime((performance.now() - startTime) / 1000);
-      }, 1000);
-
-      return () => clearInterval(sortInterval);
+      sortInterval = setInterval(sortArray, 1000);
     }
-  }, [inputArray, sorted, startTime]);
+
+    return () => clearInterval(sortInterval);
+  }, [inputArray, sorted]);
 
   const handleInputChange = (e) => {
     const newArray = e.target.value
@@ -50,16 +45,11 @@ function App() {
       .filter((item) => !isNaN(item));
     setInputArray(newArray);
     setSorted(false);
-    setStartTime(performance.now());
-    setElapsedTime(0);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white font-pacifico">
       <div className="text-4xl mb-4">bogo sort app</div>
-      <div className="mb-2">
-        Elapsed Time: {elapsedTime.toFixed(2)} seconds
-      </div>
       <textarea
         className="w-full h-16 p-2 mb-4 border-red-500 focus:border-blue-500 transition-all duration-300"
         placeholder="Enter numbers separated by space"
