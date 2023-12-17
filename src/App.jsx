@@ -4,6 +4,7 @@ function App() {
   const [inputArray, setInputArray] = useState([]);
   const [sorted, setSorted] = useState(false);
   const [iterations, setIterations] = useState(0);
+  const [timeComplexity, setTimeComplexity] = useState('');
 
   useEffect(() => {
     let sortInterval;
@@ -49,12 +50,26 @@ function App() {
     setSorted(false);
   };
 
+  useEffect(() => {
+    if (sorted) {
+      setTimeComplexity(`Time Complexity: O(${factorial(iterations)})`);
+    }
+  }, [sorted, iterations]);
+
+  const factorial = (num) => {
+    if (num === 0 || num === 1) {
+      return 1;
+    }
+    return num * factorial(num - 1);
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#041f1e] text-white font-pacifico">
       <div className="text-4xl mb-4">bogo sort app</div>
       <div className='w-3/4 flex flex-col items-center justify-center m-0'>
         <h3 className='text-white mt-3 mb-5 text-center'>Enter all the numbers separated by space(' ').<br />
           {sorted && iterations > 1 ? `Array sorted in ${iterations - 1} iterations.` : ''} <br />
+          {timeComplexity && sorted && iterations > 1 ? timeComplexity : ''} <br />
           {sorted && iterations > 1 ? `Bogo Sort is a highly inefficient sorting algorithm that generates random permutations
           of the input array and checks if it is sorted. It continues this process until the array
           is sorted.` : ``}
