@@ -33,11 +33,6 @@ function App() {
         setInputArray(sortedArray);
         setSorted(isSorted(sortedArray));
         setIterations(prevIterations => prevIterations + 1);
-        const factorial = (num) => {
-          if (num === 0 || num === 1) return 1;
-          return num * factorial(num - 1);
-        };
-        setTimeComplexity(`Time Complexity: O(${factorial(sortedArray.length)})`);
       };
 
       sortInterval = setInterval(sortArray, 1000);
@@ -55,6 +50,19 @@ function App() {
     setSorted(false);
   };
 
+  useEffect(() => {
+    if (sorted) {
+      setTimeComplexity(`Time Complexity: O(${factorial(iterations)})`);
+    }
+  }, [sorted, iterations]);
+
+  const factorial = (num) => {
+    if (num === 0 || num === 1) {
+      return 1;
+    }
+    return num * factorial(num - 1);
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#041f1e] text-white font-pacifico">
       <div className="text-4xl mb-4">bogo sort app</div>
@@ -62,9 +70,9 @@ function App() {
         <h3 className='text-white mt-3 mb-5 text-center'>Enter all the numbers separated by space(' ').<br />
           {sorted && iterations > 1 ? `Array sorted in ${iterations - 1} iterations.` : ''} <br />
           {timeComplexity && sorted && iterations > 1 ? timeComplexity : ''} <br />
-          {sorted && iterations > 1 ? `Bogo Sort is a highly inefficient sorting algorithm that generates random permutations
+          {sorted && iterations > 1 ? `Bogo Sort, also known as Stupid Sort or Monkey Sort, is a highly inefficient sorting algorithm that generates random permutations
           of the input array and checks if it is sorted. It continues this process until the array
-          is sorted.` : ``}
+          is sorted.` : ''}
         </h3>
         <textarea
           className="rounded-lg font-[75px] h-32 w-24 border-solid border-[#eee] m-[1%] text-center text-white focus:outline-none pt-11 px-3 overflow-hidden bg-[#1e2d2f] resize-none mb-10"
