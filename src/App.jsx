@@ -69,29 +69,35 @@ function App() {
       <div className='w-3/4 flex flex-col items-center justify-center m-0'>
         <h3 className='text-white mt-3 mb-5 text-center'>
           Enter all the numbers separated by space(' ').<br /> <br />
-          {sorted && iterations > 1 ? (
+          {inputArray.every((element) => !isNaN(element)) && inputArray.length > 0 ? (
             <>
-              Array reluctantly fell into order
-              after <span className="font-bold text-yellow-400">{iterations - 1}</span> iterations.
-            </>
-          ) : (
-            ''
-          )} <br /> <br />
-          {timeComplexity && sorted && iterations > 1 ? (
-            <span> Time Complexity: <span className='font-bold text-green-400'>O({timeComplexity})</span></span>
-          ) : (
-            ''
-          )} <br /> <br />
-          {sorted && iterations > 1 ? (
-            <>
-              There's a reason why Bogo Sort is also known as
-              <span className="font-bold text-red-400">
-                &nbsp;Stupid Sort <span className='font-normal text-white'>or</span> Monkey Sort.
-              </span>{' '}
-              It is a highly inefficient sorting algorithm that generates random permutations
-              of the input array and checks if it is sorted. It continues this process until the array
-              is sorted or when it feels like it, with a time complexity as unpredictable as its mood:{' '}
-              <span className="font-bold text-purple-400">O((n+1)!)</span>.
+              {sorted && iterations > 1 ? (
+                <>
+                  Array reluctantly fell into order
+                  after <span className="font-bold text-yellow-400">{iterations - 1}</span> iterations.
+                </>
+              ) : (
+                ''
+              )} <br /> <br />
+              {timeComplexity && sorted && iterations > 1 ? (
+                <span> Time Complexity: <span className='font-bold text-green-400'>O({timeComplexity})</span></span>
+              ) : (
+                ''
+              )} <br /> <br />
+              {sorted && iterations > 1 ? (
+                <>
+                  There's a reason why Bogo Sort is also known as
+                  <span className="font-bold text-red-400">
+                    &nbsp;Stupid Sort <span className='font-normal text-white'>or</span> Monkey Sort.
+                  </span>{' '}
+                  It is a highly inefficient sorting algorithm that generates random permutations
+                  of the input array and checks if it is sorted. It continues this process until the array
+                  is sorted or when it feels like it, with a time complexity as unpredictable as its mood:{' '}
+                  <span className="font-bold text-purple-400">O((n+1)!)</span>.
+                </>
+              ) : (
+                ''
+              )}
             </>
           ) : (
             ''
