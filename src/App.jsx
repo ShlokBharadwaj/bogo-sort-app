@@ -59,7 +59,7 @@ function App() {
           autoFocus
         ></textarea>
       </div>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-3">
         {inputArray.map((element, index) => {
           if (isNaN(element)) {
             return null;
