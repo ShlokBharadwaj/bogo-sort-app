@@ -33,6 +33,11 @@ function App() {
         setInputArray(sortedArray);
         setSorted(isSorted(sortedArray));
         setIterations(prevIterations => prevIterations + 1);
+        const factorial = (num) => {
+          if (num === 0 || num === 1) return 1;
+          return num * factorial(num - 1);
+        };
+        setTimeComplexity(`Time Complexity: O(${factorial(sortedArray.length)})`);
       };
 
       sortInterval = setInterval(sortArray, 1000);
@@ -48,19 +53,6 @@ function App() {
       .filter((item) => !isNaN(item));
     setInputArray(newArray);
     setSorted(false);
-  };
-
-  useEffect(() => {
-    if (sorted) {
-      setTimeComplexity(`Time Complexity: O(${factorial(iterations)})`);
-    }
-  }, [sorted, iterations]);
-
-  const factorial = (num) => {
-    if (num === 0 || num === 1) {
-      return 1;
-    }
-    return num * factorial(num - 1);
   };
 
   return (
