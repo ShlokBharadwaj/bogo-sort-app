@@ -68,7 +68,7 @@ function App() {
       <div className="text-4xl mb-4 text-blue-400">bogo sort app</div>
       <div className='w-3/4 flex flex-col items-center justify-center m-0'>
         <h3 className='text-white mt-3 mb-5 text-center'>
-          Enter all the numbers separated by space(' ').<br />
+          Enter all the numbers separated by space(' ').<br /> <br /> 
           {sorted && iterations > 1 ? (
             <>
               Array reluctantly fell into order
@@ -76,12 +76,12 @@ function App() {
             </>
           ) : (
             ''
-          )} <br />
+          )} <br /> <br />
           {timeComplexity && sorted && iterations > 1 ? (
             <span> Time Complexity: <span className='font-bold text-green-400'>O({timeComplexity})</span></span>
           ) : (
             ''
-          )} <br />
+          )} <br /> <br />
           {sorted && iterations > 1 ? (
             <>
               There's a reason why Bogo Sort is also known as
@@ -90,7 +90,7 @@ function App() {
               </span>{' '}
               It is a highly inefficient sorting algorithm that generates random permutations
               of the input array and checks if it is sorted. It continues this process until the array
-              is sorted or when it feels like it, with a time complexity notation as unpredictable as its mood:{' '}
+              is sorted or when it feels like it, with a time complexity as unpredictable as its mood:{' '}
               <span className="font-bold text-purple-400">O((n+1)!)</span>.
             </>
           ) : (
