@@ -68,11 +68,11 @@ function App() {
       <div className="text-4xl mb-4">bogo sort app</div>
       <div className='w-3/4 flex flex-col items-center justify-center m-0'>
         <h3 className='text-white mt-3 mb-5 text-center'>Enter all the numbers separated by space(' ').<br />
-          {sorted && iterations > 1 ? `Array sorted in ${iterations - 1} iterations.` : ''} <br />
+          {sorted && iterations > 1 ? `Array reluctantly fell into order after ${iterations - 1} iterations.` : ''} <br />
           {timeComplexity && sorted && iterations > 1 ? timeComplexity : ''} <br />
-          {sorted && iterations > 1 ? `Bogo Sort, also known as Stupid Sort or Monkey Sort, is a highly inefficient sorting algorithm that generates random permutations
+          {sorted && iterations > 1 ? `There's a reason why Bogo Sort is also known as Stupid Sort or Monkey Sort. It is a highly inefficient sorting algorithm that generates random permutations
           of the input array and checks if it is sorted. It continues this process until the array
-          is sorted.` : ''}
+          is sorted or when it feels like it, with a time complexity notation as unpredictable as its mood: O((n+1)!).` : ''}
         </h3>
         <textarea
           className="rounded-lg font-[75px] h-32 w-24 border-solid border-[#eee] m-[1%] text-center text-white focus:outline-none pt-11 px-3 overflow-hidden bg-[#1e2d2f] resize-none mb-10"
