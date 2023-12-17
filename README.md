@@ -6,6 +6,10 @@ An implementation of the Bogo Sort algorithm in React.
 
 Bogo Sort is a highly inefficient sorting algorithm that generates random permutations of the input array and checks if it is sorted. It continues this process until the array is sorted. The app provides a visual representation of the sorting process, along with additional information about the number of iterations and time complexity.
 
+## Live Site
+
+The live site for the application can be accessed [here](shlokbharadwaj.github.io/bogo-sort-app/).
+
 ## Getting Started
 
 ### Clone the Repository
@@ -18,7 +22,7 @@ git clone git@github.com:ShlokBharadwaj/bogo-sort-app.git
 
 ```
 cd bogo-sort-app
-npm install
+npm i
 ```
 
 ### Run app Locally
