@@ -54,12 +54,12 @@ function App() {
         <h3 className='text-white mt-3 mb-5 text-center'>Enter all the numbers separated by space(' ').
         </h3>
         <textarea
-          className="rounded-lg font-[75px] h-32 w-24 border-solid border-[#eee] m-[1%] text-center text-white focus:outline-none pt-11 px-3 overflow-hidden bg-[#1e2d2f] resize-none"
+          className="rounded-lg font-[75px] h-32 w-24 border-solid border-[#eee] m-[1%] text-center text-white focus:outline-none pt-11 px-3 overflow-hidden bg-[#1e2d2f] resize-none mb-10"
           onChange={handleInputChange}
           autoFocus
         ></textarea>
       </div>
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex flex-wrap justify-center gap-4">
         {inputArray.map((element, index) => {
           if (isNaN(element)) {
             return null;
@@ -67,7 +67,7 @@ function App() {
           return (
             <div
               key={index}
-              className={`rounded-lg font-[75px] h-32 w-24 m-[1%] text-center text-white focus:outline-none pt-11 px-3 overflow-hidden bg-[#1e2d2f] ${sorted ? 'border border-solid border-green-500 element-transition-sort' : 'border border-solid border-red-500 element-transition-sort'} transition-all duration-300 m-4`}
+              className={`rounded-lg font-[75px] h-32 w-24 m-[0%] text-center text-white focus:outline-none pt-12 px-3 overflow-hidden bg-[#1e2d2f] ${sorted ? 'border border-solid border-green-500' : 'border border-solid border-red-500'} transition-all duration-300 m-4`}
             >
               {element}
             </div>
