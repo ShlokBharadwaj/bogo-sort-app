@@ -68,7 +68,7 @@ function App() {
       <div className="text-4xl mb-4 text-blue-400">bogo sort app</div>
       <div className='w-3/4 flex flex-col items-center justify-center m-0'>
         <h3 className='text-white mt-3 mb-5 text-center'>
-          Enter all the numbers separated by space(' ').<br /> <br /> 
+          Enter all the numbers separated by space(' ').<br /> <br />
           {sorted && iterations > 1 ? (
             <>
               Array reluctantly fell into order
@@ -86,7 +86,7 @@ function App() {
             <>
               There's a reason why Bogo Sort is also known as
               <span className="font-bold text-red-400">
-                &nbsp;Stupid Sort or Monkey Sort.
+                &nbsp;Stupid Sort <span className='font-normal text-white'>or</span> Monkey Sort.
               </span>{' '}
               It is a highly inefficient sorting algorithm that generates random permutations
               of the input array and checks if it is sorted. It continues this process until the array
